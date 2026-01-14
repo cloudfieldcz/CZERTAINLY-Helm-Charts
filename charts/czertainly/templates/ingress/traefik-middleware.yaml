@@ -1,0 +1,43 @@
+{{- if and .Values.ingress.enabled (eq .Values.ingress.class "traefik") (not .Values.global.kong.enabled) }}
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ include "czertainly.fullname" . }}-strip-prefix
+  labels:
+    {{- include "czertainly.labels" . | nindent 4 }}
+spec:
+  stripPrefix:
+    prefixes:
+      - /administrator
+      {{- if .Values.global.messaging.remoteAccess }}
+      - /mq
+      {{- end }}
+      {{- if .Values.global.utils.enabled }}
+      - /utils
+      {{- end }}
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ include "czertainly.fullname" . }}-login-rewrite
+  labels:
+    {{- include "czertainly.labels" . | nindent 4 }}
+spec:
+  replacePathRegex:
+    regex: "^/(login|logout)(.*)"
+    replacement: "/api/$1$2"
+---
+{{- $hostName := pluck "hostName" .Values.global .Values | compact | first }}
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ include "czertainly.fullname" . }}-headers
+  labels:
+    {{- include "czertainly.labels" . | nindent 4 }}
+spec:
+  headers:
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"
+      X-Forwarded-Host: "{{ $hostName }}"
+      X-Forwarded-Port: "443"
+{{- end }}

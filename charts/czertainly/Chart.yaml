@@ -127,7 +127,8 @@ dependencies:
     # repository: oci://harbor.3key.company/czertainly-helm
     repository: file://../czertainly-lib
     version: 1.4.2
-  - name: api-gateway-kong
+  - condition: global.kong.enabled
+    name: api-gateway-kong
     # repository: oci://harbor.3key.company/czertainly-helm
     repository: file://../api-gateway-kong
     tags:

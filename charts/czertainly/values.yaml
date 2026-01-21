@@ -210,10 +210,10 @@ service:
 
 image:
   # default registry name
-  registry: docker.io
-  repository: czertainly
+  registry: czertainlytestswcacr.azurecr.io
+  repository: ""
   name: czertainly-core
-  tag: 2.16.2
+  tag: 2.17.0-SAAS
   # the digest to be used instead of the tag
   digest: ""
   pullPolicy: IfNotPresent

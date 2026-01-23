@@ -10,14 +10,20 @@ on:
         description: 'Target version for appVersion and image.tag'
         required: true
         type: string
+  repository_dispatch:
+    types: [update-chart-version]
 
 permissions:
   contents: write
 
 jobs:
   update-version:
-    name: Update ${{ inputs.chart }} to ${{ inputs.version }}
+    name: Update chart version
     runs-on: ubuntu-latest
+
+    env:
+      CHART: ${{ github.event.inputs.chart || github.event.client_payload.chart }}
+      VERSION: ${{ github.event.inputs.version || github.event.client_payload.version }}
 
     steps:
       - name: Checkout
@@ -25,10 +31,18 @@ jobs:
 
       - name: Validate inputs
         run: |
-          CHART_DIR="charts/${{ inputs.chart }}"
+          echo "Chart: $CHART"
+          echo "Version: $VERSION"
+
+          if [[ -z "$CHART" || -z "$VERSION" ]]; then
+            echo "❌ Missing required inputs: chart='$CHART', version='$VERSION'"
+            exit 1
+          fi
+
+          CHART_DIR="charts/$CHART"
 
           if [[ ! -d "$CHART_DIR" ]]; then
-            echo "❌ Chart '${{ inputs.chart }}' not found in charts/"
+            echo "❌ Chart '$CHART' not found in charts/"
             echo "Available charts:"
             ls charts/
             exit 1
@@ -42,10 +56,8 @@ jobs:
           echo "✅ Chart validated: $CHART_DIR"
 
       - name: Update versions
-        id: update
         run: |
-          CHART_DIR="charts/${{ inputs.chart }}"
-          VERSION="${{ inputs.version }}"
+          CHART_DIR="charts/$CHART"
 
           # Update appVersion in Chart.yaml
           echo "📝 Updating appVersion in Chart.yaml"
@@ -76,6 +88,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add charts/${{ inputs.chart }}/
-          git commit -m "Bump ${{ inputs.chart }} to ${{ inputs.version }}"
+          git add charts/$CHART/
+          git commit -m "Bump $CHART to $VERSION"
           git push

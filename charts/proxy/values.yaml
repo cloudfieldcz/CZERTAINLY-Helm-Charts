@@ -120,8 +120,8 @@ amqp:
   authMethod: "sasl-plain"
 
   # Credentials for SASL PLAIN or CBS with SAS tokens
-  keyName: ""
-  key: ""
+  username: ""
+  password: ""
 
   # CBS-specific settings (only used when authMethod is "cbs")
   # Token validity duration for SAS tokens (minimum: 2m)

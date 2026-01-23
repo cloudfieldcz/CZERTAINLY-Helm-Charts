@@ -64,12 +64,12 @@ spec:
 
           env:
             # Sensitive values from secret
-            {{- if .Values.amqp.key }}
-            - name: PROXY_AMQP_KEY
+            {{- if .Values.amqp.password }}
+            - name: PROXY_AMQP_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "proxy.fullname" . }}-secret
-                  key: amqpKey
+                  key: amqpPassword
             {{- end }}
             {{- if .Values.amqp.entraId.clientSecret }}
             - name: PROXY_AMQP_ENTRAID_CLIENT_SECRET

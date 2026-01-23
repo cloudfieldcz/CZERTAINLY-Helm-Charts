@@ -21,8 +21,8 @@ data:
   PROXY_AMQP_PORT: {{ .Values.amqp.port | quote }}
   PROXY_AMQP_USE_TLS: {{ .Values.amqp.useTls | quote }}
   PROXY_AMQP_AUTH_METHOD: {{ .Values.amqp.authMethod | quote }}
-  {{- if .Values.amqp.keyName }}
-  PROXY_AMQP_KEY_NAME: {{ .Values.amqp.keyName | quote }}
+  {{- if .Values.amqp.username }}
+  PROXY_AMQP_USERNAME: {{ .Values.amqp.username | quote }}
   {{- end }}
   PROXY_AMQP_TOKEN_EXPIRY: {{ .Values.amqp.tokenExpiry | quote }}
   {{- if .Values.amqp.entraId.tenantId }}

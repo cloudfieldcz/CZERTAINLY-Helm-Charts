@@ -11,8 +11,8 @@ amqp:
   port: 5672
   useTls: false
   authMethod: "sasl-plain"
-  keyName: "guest"
-  key: "guest"
+  username: "guest"
+  password: "guest"
   topicName: "test-topic"
   subscription: "test-subscription"
   responseTopic: "test-response"

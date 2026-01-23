@@ -56,10 +56,14 @@ jobs:
             echo "last_tag=$last_tag" >> $GITHUB_ENV
 
             changed=$(ct list-changed --target-branch "$BRANCH" --since "$last_tag")
-          else
-            echo "🔀 Detected branch push (likely a merge or direct push)"
+          elif [[ -n "${{ github.event.before }}" && "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]]; then
+            echo "🔀 Detected branch push"
             echo "Comparing against: ${{ github.event.before }}"
             changed=$(ct list-changed --target-branch "$BRANCH" --since "${{ github.event.before }}")
+          else
+            echo "🔄 Detected dispatch trigger (repository_dispatch or workflow_dispatch)"
+            echo "Comparing against: HEAD^1"
+            changed=$(ct list-changed --target-branch "$BRANCH" --since "HEAD^1")
           fi
 
           echo "${changed}"
@@ -115,8 +119,10 @@ jobs:
         run: |
           if [[ "${{ github.ref_type }}" == "tag" ]]; then
             ct lint --target-branch "$BRANCH" --since $last_tag --check-version-increment=false
-          else
+          elif [[ -n "${{ github.event.before }}" && "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]]; then
             ct lint --target-branch "$BRANCH" --since "${{ github.event.before }}" --check-version-increment=false
+          else
+            ct lint --target-branch "$BRANCH" --since "HEAD^1" --check-version-increment=false
           fi
 
       - name: Publish charts

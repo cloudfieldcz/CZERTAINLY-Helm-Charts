@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-version:
@@ -91,3 +92,10 @@ jobs:
           git add charts/$CHART/
           git commit -m "Bump $CHART to $VERSION"
           git push
+
+      - name: Trigger publish workflow
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: publish-charts

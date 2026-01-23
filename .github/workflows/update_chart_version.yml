@@ -1,0 +1,81 @@
+name: Update Chart Version
+on:
+  workflow_dispatch:
+    inputs:
+      chart:
+        description: 'Chart folder name (e.g., scheduler-service, auth-service)'
+        required: true
+        type: string
+      version:
+        description: 'Target version for appVersion and image.tag'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update-version:
+    name: Update ${{ inputs.chart }} to ${{ inputs.version }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate inputs
+        run: |
+          CHART_DIR="charts/${{ inputs.chart }}"
+
+          if [[ ! -d "$CHART_DIR" ]]; then
+            echo "❌ Chart '${{ inputs.chart }}' not found in charts/"
+            echo "Available charts:"
+            ls charts/
+            exit 1
+          fi
+
+          if [[ ! -f "$CHART_DIR/Chart.yaml" ]]; then
+            echo "❌ Chart.yaml not found in $CHART_DIR"
+            exit 1
+          fi
+
+          echo "✅ Chart validated: $CHART_DIR"
+
+      - name: Update versions
+        id: update
+        run: |
+          CHART_DIR="charts/${{ inputs.chart }}"
+          VERSION="${{ inputs.version }}"
+
+          # Update appVersion in Chart.yaml
+          echo "📝 Updating appVersion in Chart.yaml"
+          yq -i ".appVersion = \"$VERSION\"" "$CHART_DIR/Chart.yaml"
+
+          # Update image.tag in values.yaml (if exists)
+          if [[ -f "$CHART_DIR/values.yaml" ]] && yq -e '.image.tag' "$CHART_DIR/values.yaml" > /dev/null 2>&1; then
+            echo "📝 Updating image.tag in values.yaml"
+            yq -i ".image.tag = \"$VERSION\"" "$CHART_DIR/values.yaml"
+          else
+            echo "⚠️ No image.tag found in values.yaml, skipping"
+          fi
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "⚠️ No changes detected (version may already be set)"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Changes detected"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            git diff
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add charts/${{ inputs.chart }}/
+          git commit -m "Bump ${{ inputs.chart }} to ${{ inputs.version }}"
+          git push

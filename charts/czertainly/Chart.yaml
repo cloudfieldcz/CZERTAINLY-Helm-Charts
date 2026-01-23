@@ -170,7 +170,7 @@ dependencies:
     repository: file://../scheduler-service
     tags:
       - scheduler
-    version: 1.0.4-1
+    version: 1.0.5-1
     alias: schedulerService
   - condition: global.database.pgBouncer.enabled
     name: pg-bouncer

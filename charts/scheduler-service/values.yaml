@@ -99,7 +99,7 @@ image:
   registry: czertainlytestswcacr.azurecr.io
   repository: ""
   name: czertainly-scheduler
-  tag: 1.1.2-SAAS
+  tag: 1.1.3-SAAS
   # the digest to be used instead of the tag
   digest: ""
   pullPolicy: IfNotPresent

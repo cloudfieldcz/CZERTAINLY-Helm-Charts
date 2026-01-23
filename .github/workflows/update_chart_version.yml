@@ -60,6 +60,23 @@ jobs:
         run: |
           CHART_DIR="charts/$CHART"
 
+          # Bump chart version (increment patch: 1.0.4-1 → 1.0.5-1)
+          current_version=$(yq ".version" "$CHART_DIR/Chart.yaml")
+          echo "📝 Current chart version: $current_version"
+
+          if [[ "$current_version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)-(.+)$ ]]; then
+            major="${BASH_REMATCH[1]}"
+            minor="${BASH_REMATCH[2]}"
+            patch="${BASH_REMATCH[3]}"
+            suffix="${BASH_REMATCH[4]}"
+            new_patch=$((patch + 1))
+            new_version="${major}.${minor}.${new_patch}-${suffix}"
+            echo "📝 Bumping chart version to: $new_version"
+            yq -i ".version = \"$new_version\"" "$CHART_DIR/Chart.yaml"
+          else
+            echo "⚠️ Chart version '$current_version' doesn't match pattern X.Y.Z-suffix, skipping version bump"
+          fi
+
           # Update appVersion in Chart.yaml
           echo "📝 Updating appVersion in Chart.yaml"
           yq -i ".appVersion = \"$VERSION\"" "$CHART_DIR/Chart.yaml"

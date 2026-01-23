@@ -85,7 +85,7 @@ jobs:
         run: echo "No chart changes detected — skipping checks." && exit 0
 
       - name: Check for Development Versions
-        if: env.changed == 'true' && github.ref_type == 'branch'
+        if: env.changed == 'true' && github.ref_type == 'branch' && github.event_name == 'push'
         env:
           changed_charts: ${{ env.changed_charts }}
         run: |

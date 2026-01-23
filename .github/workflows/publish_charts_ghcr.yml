@@ -57,8 +57,9 @@ jobs:
 
             changed=$(ct list-changed --target-branch "$BRANCH" --since "$last_tag")
           else
-            echo "🔀 Detected branch push (likely a merge)"
-            changed=$(ct list-changed --target-branch "$BRANCH" --since HEAD^1)
+            echo "🔀 Detected branch push (likely a merge or direct push)"
+            echo "Comparing against: ${{ github.event.before }}"
+            changed=$(ct list-changed --target-branch "$BRANCH" --since "${{ github.event.before }}")
           fi
 
           echo "${changed}"
@@ -115,7 +116,7 @@ jobs:
           if [[ "${{ github.ref_type }}" == "tag" ]]; then
             ct lint --target-branch "$BRANCH" --since $last_tag --check-version-increment=false
           else
-            ct lint --target-branch "$BRANCH" --since HEAD^1 --check-version-increment=false
+            ct lint --target-branch "$BRANCH" --since "${{ github.event.before }}" --check-version-increment=false
           fi
 
       - name: Publish charts

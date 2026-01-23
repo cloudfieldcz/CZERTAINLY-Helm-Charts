@@ -135,8 +135,8 @@ spec:
             #       name: messaging-secret-{{ .Chart.Name | lower }}
             #       {{- end }}
             #       key: messaging.password
-            - name: BROKER_VIRTUAL_HOST
-              value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
+            # - name: BROKER_VIRTUAL_HOST
+            #   value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
             {{- if $additionalEnv }}
               {{- $additionalEnv | nindent 12 }}
             {{- end }}

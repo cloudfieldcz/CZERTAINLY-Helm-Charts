@@ -229,8 +229,8 @@ spec:
             #     secretKeyRef:
             #       name: messaging-secret
             #       key: messaging.password
-            - name: BROKER_VIRTUAL_HOST
-              value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
+            # - name: BROKER_VIRTUAL_HOST
+            #   value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
             - name: SCHEDULER_BASE_URL
               value: "http://scheduler-service-service:{{ .Values.schedulerService.service.port }}"
             {{- if .Values.global.keycloak.enabled }}

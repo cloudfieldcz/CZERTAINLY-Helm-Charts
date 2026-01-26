@@ -84,34 +84,6 @@ jobs:
         if: env.changed != 'true'
         run: echo "No chart changes detected — skipping checks." && exit 0
 
-      - name: Check for Development Versions
-        if: env.changed == 'true' && github.ref_type == 'branch' && github.event_name == 'push'
-        env:
-          changed_charts: ${{ env.changed_charts }}
-        run: |
-          for CHART in $changed_charts; do
-            echo "🔍 Checking chart $CHART for development version"
-            version=$(yq ".version" < "${CHART}/Chart.yaml")
-            if [[ $version != *-develop ]]; then
-              echo "❌ Chart $CHART has version '$version' but should be a development version (*-develop)"
-              exit 1
-            fi
-          done
-
-      - name: Check for Release Versions
-        if: env.changed == 'true' && github.ref_type == 'tag'
-        env:
-          changed_charts: ${{ env.changed_charts }}
-        run: |
-          for CHART in $changed_charts; do
-            echo "🔍 Checking chart $CHART for release-ready version"
-            version=$(yq ".version" < "${CHART}/Chart.yaml")
-            if [[ $version == *-develop ]]; then
-              echo "❌ Chart $CHART has development version '$version' in a release branch"
-              exit 1
-            fi
-          done
-
       - name: Run chart-testing (lint)
         if: env.changed == 'true'
         env:

@@ -3,7 +3,6 @@
 
 nameOverride: ""
 fullnameOverride: ""
-
 # Global parameters (for umbrella chart compatibility)
 global:
   image:
@@ -25,28 +24,24 @@ global:
     variables: []
     configMaps: []
     secrets: []
-
 # Replica count
 replicaCount: 1
-
 # Autoscaling configuration
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
-
 # Service configuration
 service:
   type: "ClusterIP"
   port: 8080
-
 # Main container image
 image:
   registry: czertainlytestswcacr.azurecr.io
   repository: ""
   name: czertainly-proxy
-  tag: "latest"
+  tag: "v0.0.3"
   digest: ""
   pullPolicy: IfNotPresent
   pullSecrets: []
@@ -83,24 +78,21 @@ image:
       successThreshold: 1
       failureThreshold: 30
   resources: {}
-    # requests:
-    #   cpu: 100m
-    #   memory: 128Mi
-    # limits:
-    #   cpu: 500m
-    #   memory: 256Mi
-
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # limits:
+  #   cpu: 500m
+  #   memory: 256Mi
 # Application configuration
 application:
   name: "azure-sb-proxy"
   environment: "production"
   maxWorkers: 10
-
 # AMQP / Message broker configuration
 amqp:
   # Broker type: "azureservicebus" (default) or "rabbitmq"
   brokerType: "azureservicebus"
-
   # URL-based configuration (recommended)
   # Supports: amqp://, amqps://, wss:// (WebSocket)
   # Examples:
@@ -108,47 +100,38 @@ amqp:
   #   AMQP over TLS:                 amqps://namespace.servicebus.windows.net:5671
   #   Plain AMQP:                    amqp://localhost:5672
   url: ""
-
   # Legacy host-based configuration (used if url is empty)
   host: ""
   port: 5671
   useTls: true
-
   # Authentication method: "sasl-plain" or "cbs" (Claims-Based Security)
   # - sasl-plain: Direct credential authentication (RabbitMQ, Azure Service Bus)
   # - cbs: Token-based authentication with automatic renewal (Azure Service Bus only)
   authMethod: "sasl-plain"
-
   # Credentials for SASL PLAIN or CBS with SAS tokens
   username: ""
   password: ""
-
   # CBS-specific settings (only used when authMethod is "cbs")
   # Token validity duration for SAS tokens (minimum: 2m)
   tokenExpiry: "1h"
-
   # Entra ID (Azure AD) configuration for CBS authentication
   # If entraId.clientId is set, Entra ID authentication is used instead of SAS tokens
   entraId:
     tenantId: ""
     clientId: ""
     clientSecret: ""
-
   # Topic and subscription configuration
   topicName: ""
   subscription: ""
   responseTopic: ""
-
   # AMQP tuning
   prefetchCount: 10
   messageLockTime: "300s"
-
   # Reconnection settings
   reconnect:
     initialDelay: "2s"
     maxDelay: "1m"
     factor: 2.0
-
 # HTTP client settings (for connector calls)
 httpClient:
   maxIdleConns: 100
@@ -159,24 +142,20 @@ httpClient:
   tlsHandshakeTimeout: "10s"
   keepAlive: "30s"
   defaultTimeout: "30s"
-
 # HTTP server settings
 http:
   port: 8080
   readTimeout: "10s"
   writeTimeout: "10s"
   shutdownTimeout: "30s"
-
 # Metrics configuration
 metrics:
   enabled: true
   path: "/metrics"
-
 # Logging configuration
 logging:
   level: "info"
   format: "json"
-
 # Local customizations
 initContainers: []
 sidecarContainers: []
@@ -187,7 +166,6 @@ additionalEnv:
   variables: []
   configMaps: []
   secrets: []
-
 # Ephemeral volumes configuration
 volumes:
   ephemeral:
@@ -195,18 +173,16 @@ volumes:
     sizeLimit: "10Mi"
     storageClassName: ""
     custom: {}
-
 # Service account configuration
 serviceAccount:
   create: true
   annotations: {}
   name: ""
-
 # Pod configuration
 podLabels: {}
 podAnnotations: {}
 podSecurityContext: {}
-  # fsGroup: 65534
+# fsGroup: 65534
 
 # Node selection
 nodeSelector: {}

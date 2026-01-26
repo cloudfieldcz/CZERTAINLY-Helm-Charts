@@ -30,6 +30,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.10.0
+
       - name: Validate inputs
         run: |
           echo "Chart: $CHART"
@@ -87,6 +92,16 @@ jobs:
             yq -i ".image.tag = \"$VERSION\"" "$CHART_DIR/values.yaml"
           else
             echo "⚠️ No image.tag found in values.yaml, skipping"
+          fi
+
+      - name: Update Chart.lock
+        run: |
+          CHART_DIR="charts/$CHART"
+          if [[ -f "$CHART_DIR/Chart.lock" ]]; then
+            echo "📝 Updating Chart.lock"
+            helm dependency update "$CHART_DIR" --skip-refresh
+          else
+            echo "⚠️ No Chart.lock found, skipping dependency update"
           fi
 
       - name: Check for changes

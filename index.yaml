@@ -1,11 +1,46 @@
 apiVersion: v1
 entries:
+  fe-administrator:
+  - annotations:
+      category: trustLifecycleManagement
+    apiVersion: v2
+    appVersion: 2.16.2
+    created: "2026-01-26T17:25:15.278414338Z"
+    dependencies:
+    - name: czertainly-lib
+      repository: file://../czertainly-lib
+      version: 1.4.2
+    description: A Helm chart for Administrator Web for CZERTAINLY platform.
+    digest: 22693b2c6d429257ad2caf21eb0416949232ea0f5bfffd4e3c35d2889046e025
+    home: https://github.com/CZERTAINLY/CZERTAINLY-FE-Administrator
+    icon: https://github.com/CZERTAINLY/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
+    keywords:
+    - czertainly
+    - trust
+    - management
+    - lifecycle
+    - platform
+    - fe
+    - administrator
+    maintainers:
+    - email: info@czertainly.com
+      name: CZERTAINLY
+      url: https://github.com/CZERTAINLY/CZERTAINLY-Helm-Charts
+    name: fe-administrator
+    sources:
+    - https://github.com/CZERTAINLY/CZERTAINLY
+    - https://www.czertainly.com
+    - https://docs.czertainly.com
+    type: application
+    urls:
+    - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/fe-administrator-2.16.2.tgz
+    version: 2.16.2
   proxy:
   - annotations:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-26T16:32:53.582024778Z"
+    created: "2026-01-26T17:25:15.279404231Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -34,4 +69,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/proxy-1.0.2.tgz
     version: 1.0.2
-generated: "2026-01-26T16:32:53.580769478Z"
+generated: "2026-01-26T17:25:15.277235998Z"

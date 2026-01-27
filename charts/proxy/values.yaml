@@ -41,7 +41,7 @@ image:
   registry: czertainlytestswcacr.azurecr.io
   repository: ""
   name: czertainly-proxy
-  tag: "v0.0.3"
+  tag: "0.0.4"
   digest: ""
   pullPolicy: IfNotPresent
   pullSecrets: []
@@ -89,7 +89,6 @@ application:
   name: "azure-sb-proxy"
   environment: "production"
   maxWorkers: 10
-
 # Token-based configuration (alternative to individual settings)
 # When set, the JWT token takes precedence over all other configuration
 # Generate tokens using: token generate --from-config config.yaml
@@ -98,7 +97,6 @@ token: ""
 # HMAC signing key for token signature verification (HS256/HS384/HS512)
 # Leave empty for unsigned tokens (alg: none)
 tokenSigningKey: ""
-
 # AMQP / Message broker configuration
 amqp:
   # Broker type: "azureservicebus" (default) or "rabbitmq"

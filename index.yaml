@@ -5,7 +5,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-01-27T07:04:00.396865266Z"
+    created: "2026-01-27T07:50:53.192258139Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -40,7 +40,40 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-27T07:04:00.399035871Z"
+    created: "2026-01-27T07:50:53.195544024Z"
+    dependencies:
+    - name: czertainly-lib
+      repository: file://../czertainly-lib
+      version: 1.4.2
+    description: A Helm chart for Azure Service Bus / RabbitMQ proxy
+    digest: 9a112438fbc200b6a0c51a92b2255ba48edc3aee63f606216dad2e309a5e4b0a
+    home: https://github.com/3KeyCompany/CZERTAINLY
+    icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
+    keywords:
+    - czertainly
+    - proxy
+    - amqp
+    - azure-service-bus
+    - rabbitmq
+    - messaging
+    maintainers:
+    - email: info@czertainly.com
+      name: CZERTAINLY
+      url: https://github.com/3KeyCompany/CZERTAINLY-Helm-Charts
+    name: proxy
+    sources:
+    - https://github.com/3KeyCompany/CZERTAINLY
+    - https://www.czertainly.com
+    - https://docs.czertainly.com
+    type: application
+    urls:
+    - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/proxy-1.0.4.tgz
+    version: 1.0.4
+  - annotations:
+      category: trustLifecycleManagement
+    apiVersion: v2
+    appVersion: v0.0.3
+    created: "2026-01-27T07:50:53.194262999Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -73,7 +106,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-27T07:04:00.397918974Z"
+    created: "2026-01-27T07:50:53.193264231Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -102,4 +135,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/proxy-1.0.2.tgz
     version: 1.0.2
-generated: "2026-01-27T07:04:00.395532586Z"
+generated: "2026-01-27T07:50:53.191038449Z"

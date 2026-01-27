@@ -94,12 +94,10 @@ application:
 # When set, the JWT token takes precedence over all other configuration
 # Generate tokens using: token generate --from-config config.yaml
 # See docs/TOKEN_CONFIG.md for format details
-tokenConfig:
-  # JWT configuration token containing all proxy settings
-  token: ""
-  # HMAC signing key for signature verification (HS256/HS384/HS512)
-  # Leave empty for unsigned tokens (alg: none)
-  signingKey: ""
+token: ""
+# HMAC signing key for token signature verification (HS256/HS384/HS512)
+# Leave empty for unsigned tokens (alg: none)
+tokenSigningKey: ""
 
 # AMQP / Message broker configuration
 amqp:

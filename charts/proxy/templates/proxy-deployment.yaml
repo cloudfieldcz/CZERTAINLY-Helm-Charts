@@ -78,14 +78,14 @@ spec:
                   name: {{ include "proxy.fullname" . }}-secret
                   key: entraIdClientSecret
             {{- end }}
-            {{- if .Values.tokenConfig.token }}
+            {{- if .Values.token }}
             - name: PROXY_CONFIG_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: {{ include "proxy.fullname" . }}-secret
                   key: configToken
             {{- end }}
-            {{- if .Values.tokenConfig.signingKey }}
+            {{- if .Values.tokenSigningKey }}
             - name: PROXY_TOKEN_SIGNING_KEY
               valueFrom:
                 secretKeyRef:

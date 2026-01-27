@@ -78,6 +78,20 @@ spec:
                   name: {{ include "proxy.fullname" . }}-secret
                   key: entraIdClientSecret
             {{- end }}
+            {{- if .Values.tokenConfig.token }}
+            - name: PROXY_CONFIG_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "proxy.fullname" . }}-secret
+                  key: configToken
+            {{- end }}
+            {{- if .Values.tokenConfig.signingKey }}
+            - name: PROXY_TOKEN_SIGNING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "proxy.fullname" . }}-secret
+                  key: tokenSigningKey
+            {{- end }}
             {{- if $additionalEnv }}
             {{- $additionalEnv | nindent 12 }}
             {{- end }}

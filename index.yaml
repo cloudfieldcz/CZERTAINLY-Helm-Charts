@@ -5,7 +5,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-01-27T07:50:53.192258139Z"
+    created: "2026-01-27T08:30:10.674844192Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -39,14 +39,14 @@ entries:
   - annotations:
       category: trustLifecycleManagement
     apiVersion: v2
-    appVersion: v0.0.3
-    created: "2026-01-27T07:50:53.195544024Z"
+    appVersion: 0.0.4
+    created: "2026-01-27T08:30:10.67806912Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
       version: 1.4.2
     description: A Helm chart for Azure Service Bus / RabbitMQ proxy
-    digest: 9a112438fbc200b6a0c51a92b2255ba48edc3aee63f606216dad2e309a5e4b0a
+    digest: 00dc2ae14430bcf7106fc590f362b3a4c70bf578706041b7c99f649942362504
     home: https://github.com/3KeyCompany/CZERTAINLY
     icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
     keywords:
@@ -73,7 +73,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-27T07:50:53.194262999Z"
+    created: "2026-01-27T08:30:10.67682377Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -106,7 +106,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-27T07:50:53.193264231Z"
+    created: "2026-01-27T08:30:10.675828365Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -135,4 +135,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/proxy-1.0.2.tgz
     version: 1.0.2
-generated: "2026-01-27T07:50:53.191038449Z"
+generated: "2026-01-27T08:30:10.673618418Z"

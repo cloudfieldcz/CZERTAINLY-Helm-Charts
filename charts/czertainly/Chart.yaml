@@ -1,7 +1,7 @@
 annotations:
   category: trustLifecycleManagement
 apiVersion: v2
-appVersion: 2.17.3-SAAS
+appVersion: 2.17.4-SAAS
 name: czertainly
 description: A Helm chart for CZERTAINLY platform.
 home: https://github.com/3KeyCompany/CZERTAINLY
@@ -197,4 +197,4 @@ sources:
   - https://github.com/3KeyCompany/CZERTAINLY
   - https://www.czertainly.com
   - https://docs.czertainly.com
-version: 2.17.3-SAAS
+version: 2.17.4-SAAS

@@ -207,7 +207,7 @@ image:
   registry: czertainlytestswcacr.azurecr.io
   repository: ""
   name: czertainly-core
-  tag: 2.17.3-SAAS
+  tag: 2.17.4-SAAS
   # the digest to be used instead of the tag
   digest: ""
   pullPolicy: IfNotPresent
@@ -321,7 +321,7 @@ kubectl:
       runAsNonRoot: true
       # runAsUser: 1001
       readOnlyRootFilesystem: true
-    # it does not make sense to have probes for kubectl
+      # it does not make sense to have probes for kubectl
 opa:
   image:
     # default registry name
@@ -450,9 +450,9 @@ ingress:
   #        pathType: Prefix
   tls:
     secretName: czertainly-ingress-tls
-  #  - secretName: czertainly.local-tls
-  #    hosts:
-  #      - czertainly.local
+    #  - secretName: czertainly.local-tls
+    #    hosts:
+    #      - czertainly.local
 nodeSelector: {}
 tolerations: []
 affinity: {}

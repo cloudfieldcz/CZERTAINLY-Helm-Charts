@@ -82,6 +82,46 @@ helm uninstall --namespace czertainly czertainly-tlm
 See [CZERTAINLY-Helm-Charts](https://github.com/CZERTAINLY/CZERTAINLY-Helm-Charts) for description of all charts and sub-charts that are available for the platform.
 :::
 
+## High Availability
+
+CZERTAINLY supports High Availability (HA) deployments by running multiple replicas of the Core service. When running in HA mode (`global.replicaCount >= 2`), Redis is **required** for session/state sharing between replicas.
+
+### Redis Requirements
+
+When deploying with `global.replicaCount >= 2`, you must enable Redis in one of two ways:
+
+**Option 1: Internal Redis (recommended for most deployments)**
+```bash
+helm install czertainly oci://harbor.3key.company/czertainly-helm/czertainly \
+  --set global.replicaCount=2 \
+  --set cachingService.enabled=true
+```
+
+**Option 2: External Redis (for production environments with existing Redis infrastructure)**
+```bash
+helm install czertainly oci://harbor.3key.company/czertainly-helm/czertainly \
+  --set global.replicaCount=2 \
+  --set global.redis.external.enabled=true \
+  --set global.redis.external.host=your-redis-host \
+  --set global.redis.external.port=6379 \
+  --set global.redis.password=your-redis-password
+```
+
+### Validation
+
+The Helm chart includes validation that prevents deployment with `replicaCount >= 2` without Redis configured. If you attempt to deploy without Redis, you will see an error message:
+
+```
+ERROR: Redis is required for High Availability deployments.
+   When replicaCount >= 2, you must enable either:
+   - cachingService.enabled=true (for internal Redis), or
+   - global.redis.external.enabled=true (for external Redis)
+```
+
+### Single Instance Deployments
+
+For single instance deployments (`global.replicaCount=1`), Redis is optional and disabled by default. You can still enable Redis if needed for other purposes.
+
 ## Persistence
 
 Internal services can use Persistence Volume Claims to store the data. The PVC is created dynamically by default, but different behaviour can be configured.

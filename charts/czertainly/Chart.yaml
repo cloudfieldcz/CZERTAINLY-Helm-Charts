@@ -165,6 +165,14 @@ dependencies:
       - messaging
     version: 4.2.0-1
     alias: messagingService
+  - condition: cachingService.enabled
+    name: caching-redis
+    # repository: oci://harbor.3key.company/czertainly-helm
+    repository: file://../caching-redis
+    tags:
+      - caching
+    version: 7.4.2-1-develop
+    alias: cachingService
   - name: scheduler-service
     # repository: oci://harbor.3key.company/czertainly-helm
     repository: file://../scheduler-service

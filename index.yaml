@@ -1,11 +1,43 @@
 apiVersion: v1
 entries:
+  caching-redis:
+  - annotations:
+      category: trustLifecycleManagement
+    apiVersion: v2
+    appVersion: 7.4.2
+    created: "2026-01-29T10:42:34.574728236Z"
+    dependencies:
+    - name: czertainly-lib
+      repository: file://../czertainly-lib
+      version: 1.4.2
+    description: A Helm chart for CZERTAINLY platform Redis caching service.
+    digest: 49f538eef8d6305643a0865f6faffaa4e698329504f9f700e20a6ab391e09b40
+    home: https://github.com/CZERTAINLY/CZERTAINLY-Helm-Charts
+    icon: https://github.com/CZERTAINLY/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
+    keywords:
+    - czertainly
+    - redis
+    - caching
+    - session
+    maintainers:
+    - email: info@czertainly.com
+      name: CZERTAINLY
+      url: https://github.com/CZERTAINLY/CZERTAINLY-Helm-Charts
+    name: caching-redis
+    sources:
+    - https://github.com/CZERTAINLY/CZERTAINLY
+    - https://www.czertainly.com
+    - https://docs.czertainly.com
+    type: application
+    urls:
+    - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/caching-redis-7.4.2-1-develop.tgz
+    version: 7.4.2-1-develop
   czertainly:
   - annotations:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.4-SAAS
-    created: "2026-01-28T14:21:49.128924653Z"
+    created: "2026-01-29T10:42:34.620855634Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -144,6 +176,13 @@ entries:
       tags:
       - messaging
       version: 4.2.0-1
+    - alias: cachingService
+      condition: cachingService.enabled
+      name: caching-redis
+      repository: file://../caching-redis
+      tags:
+      - caching
+      version: 7.4.2-1-develop
     - alias: schedulerService
       name: scheduler-service
       repository: file://../scheduler-service
@@ -159,7 +198,7 @@ entries:
       - pgbouncer
       version: 1.24.1-p1-1
     description: A Helm chart for CZERTAINLY platform.
-    digest: b4642dc0da382f92ffcda807039cb9a21ec1d1cfb4b7dd2613370eb76094fc37
+    digest: 1518d47ce86fe4788355110e3de58dfb71f66c8a917a660d6b5f4a493f5ce0f8
     home: https://github.com/3KeyCompany/CZERTAINLY
     icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
     keywords:
@@ -186,7 +225,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.3-SAAS
-    created: "2026-01-28T14:21:49.107003479Z"
+    created: "2026-01-29T10:42:34.599363184Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -368,7 +407,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-01-28T14:21:49.129959569Z"
+    created: "2026-01-29T10:42:34.621925797Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -403,7 +442,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 0.0.4
-    created: "2026-01-28T14:21:49.133856398Z"
+    created: "2026-01-29T10:42:34.624916765Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -436,7 +475,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-28T14:21:49.131967481Z"
+    created: "2026-01-29T10:42:34.623850089Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -469,7 +508,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-28T14:21:49.130996568Z"
+    created: "2026-01-29T10:42:34.622891495Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -503,7 +542,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.7-SAAS
-    created: "2026-01-28T14:21:49.136353353Z"
+    created: "2026-01-29T10:42:34.626860113Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -539,4 +578,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/scheduler-service-1.0.5-1.tgz
     version: 1.0.5-1
-generated: "2026-01-28T14:21:49.083701884Z"
+generated: "2026-01-29T10:42:34.573554361Z"

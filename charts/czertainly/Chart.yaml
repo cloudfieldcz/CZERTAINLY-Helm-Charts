@@ -178,7 +178,7 @@ dependencies:
     repository: file://../scheduler-service
     tags:
       - scheduler
-    version: 1.0.5-1
+    version: 1.0.6-1
     alias: schedulerService
   - condition: global.database.pgBouncer.enabled
     name: pg-bouncer
@@ -205,4 +205,4 @@ sources:
   - https://github.com/3KeyCompany/CZERTAINLY
   - https://www.czertainly.com
   - https://docs.czertainly.com
-version: 2.17.4-SAAS
+version: 2.17.5-SAAS

@@ -64,9 +64,9 @@ dependencies:
   version: 7.4.2-1-develop
 - name: scheduler-service
   repository: file://../scheduler-service
-  version: 1.0.5-1
+  version: 1.0.6-1
 - name: pg-bouncer
   repository: file://../pg-bouncer
   version: 1.24.1-p1-1
-digest: sha256:619d5e0c99710b208e6ed543a549dd3d11a2d2bd568efecab951055bfc68c1e9
-generated: "2026-01-28T17:06:11.802858+01:00"
+digest: sha256:9f594e790a0aceee96a805649f6ad1f343dc0376dc2e36a3ee202f8c3d0d76d7
+generated: "2026-02-09T08:34:43.439836672Z"

@@ -5,7 +5,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 7.4.2
-    created: "2026-01-29T10:42:34.574728236Z"
+    created: "2026-02-09T08:32:21.016006753Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -37,7 +37,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.4-SAAS
-    created: "2026-01-29T10:42:34.620855634Z"
+    created: "2026-02-09T08:32:21.060130645Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -198,7 +198,7 @@ entries:
       - pgbouncer
       version: 1.24.1-p1-1
     description: A Helm chart for CZERTAINLY platform.
-    digest: 1518d47ce86fe4788355110e3de58dfb71f66c8a917a660d6b5f4a493f5ce0f8
+    digest: 104521e8a2de2b4bedc2c8fc382c32e764d7a2c195bdfa79ebdab013bc905cb3
     home: https://github.com/3KeyCompany/CZERTAINLY
     icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
     keywords:
@@ -225,7 +225,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.3-SAAS
-    created: "2026-01-29T10:42:34.599363184Z"
+    created: "2026-02-09T08:32:21.038405884Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -407,7 +407,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-01-29T10:42:34.621925797Z"
+    created: "2026-02-09T08:32:21.061147047Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -442,13 +442,13 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 0.0.4
-    created: "2026-01-29T10:42:34.624916765Z"
+    created: "2026-02-09T08:32:21.065358854Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
       version: 1.4.2
     description: A Helm chart for Azure Service Bus / RabbitMQ proxy
-    digest: df5e44959f5503e784949caa46aed113a06fcc8aa4030df275be5a01b26101e9
+    digest: c46d8f01ca28c575aa754a01b07cac3c2bd6333a96db6a79190663eb4d4b10e2
     home: https://github.com/3KeyCompany/CZERTAINLY
     icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
     keywords:
@@ -475,7 +475,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-29T10:42:34.623850089Z"
+    created: "2026-02-09T08:32:21.063072971Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -508,7 +508,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-01-29T10:42:34.622891495Z"
+    created: "2026-02-09T08:32:21.062122933Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -542,7 +542,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.7-SAAS
-    created: "2026-01-29T10:42:34.626860113Z"
+    created: "2026-02-09T08:32:21.067344981Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -554,7 +554,7 @@ entries:
       - messaging
       version: 4.2.0-1
     description: A Helm chart for CZERTAINLY platform Scheduler service.
-    digest: 2eda4f0fd46cfb1e28826365010ebda853fa040603150830f7a22f3ebf009165
+    digest: d33e9c79a8b5e87a9e48c7984debc5dd1592bab3555e67629d1799b27c7fbe51
     home: https://github.com/CZERTAINLY/CZERTAINLY-Scheduler
     icon: https://github.com/CZERTAINLY/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
     keywords:
@@ -578,4 +578,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/scheduler-service-1.0.5-1.tgz
     version: 1.0.5-1
-generated: "2026-01-29T10:42:34.573554361Z"
+generated: "2026-02-09T08:32:21.014781292Z"

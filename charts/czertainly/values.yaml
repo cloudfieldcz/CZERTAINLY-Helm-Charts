@@ -210,7 +210,7 @@ service:
   port: 8080
 image:
   # default registry name
-  registry: czertainlytestswcacr.azurecr.io
+  registry: ilmtestswcacr.azurecr.io
   repository: ""
   name: czertainly-core
   tag: 2.17.4-SAAS

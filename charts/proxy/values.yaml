@@ -38,7 +38,7 @@ service:
   port: 8080
 # Main container image
 image:
-  registry: czertainlytestswcacr.azurecr.io
+  registry: ilmtestswcacr.azurecr.io
   repository: ""
   name: czertainly-proxy
   tag: "0.0.4"

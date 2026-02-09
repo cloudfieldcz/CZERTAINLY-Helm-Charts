@@ -96,7 +96,7 @@ service:
   port: 8080
 image:
   # default registry name
-  registry: czertainlytestswcacr.azurecr.io
+  registry: ilmtestswcacr.azurecr.io
   repository: ""
   name: czertainly-scheduler
   tag: 1.1.7-SAAS

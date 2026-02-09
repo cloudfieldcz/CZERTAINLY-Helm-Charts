@@ -95,7 +95,7 @@ The following values may be configured:
 | Parameter                                    | Default value                     | Description                                                                                                             |
 |----------------------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | replicaCount                                 | `1`                               | Number of replicas for the deployment                                                                                   |
-| image.registry                               | `czertainlytestswcacr.azurecr.io` | Docker registry name for the image                                                                                      |
+| image.registry                               | `ilmtestswcacr.azurecr.io` | Docker registry name for the image                                                                                      |
 | image.repository                             | `""`                              | Docker image repository name                                                                                            |
 | image.name                                   | `czertainly-proxy`                | Docker image name                                                                                                       |
 | image.tag                                    | `v0.0.3`                          | Docker image tag                                                                                                        |

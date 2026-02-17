@@ -40,4 +40,14 @@ spec:
       X-Forwarded-Proto: "https"
       X-Forwarded-Host: "{{ $hostName }}"
       X-Forwarded-Port: "443"
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ include "czertainly.fullname" . }}-pass-tls-client-cert
+  labels:
+    {{- include "czertainly.labels" . | nindent 4 }}
+spec:
+  passTLSClientCert:
+    pem: true
 {{- end }}

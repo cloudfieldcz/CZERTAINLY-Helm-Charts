@@ -33,7 +33,8 @@ metadata:
     {{- end }}
   {{- end }}
   {{- if and (eq .Values.ingress.class "traefik") (not .Values.global.kong.enabled) }}
-    traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-{{ $fullName }}-headers@kubernetescrd,{{ .Release.Namespace }}-{{ $fullName }}-strip-prefix@kubernetescrd,{{ .Release.Namespace }}-{{ $fullName }}-login-rewrite@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-{{ $fullName }}-headers@kubernetescrd,{{ .Release.Namespace }}-{{ $fullName }}-strip-prefix@kubernetescrd,{{ .Release.Namespace }}-{{ $fullName }}-login-rewrite@kubernetescrd,{{ .Release.Namespace }}-{{ $fullName }}-pass-tls-client-cert@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls.options: {{ .Release.Namespace }}-{{ $fullName }}-mtls@kubernetescrd
   {{- end }}
   {{- with .Values.ingress.annotations }}
     {{- range $key, $val := . }}

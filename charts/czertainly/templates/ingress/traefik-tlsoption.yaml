@@ -20,5 +20,5 @@ spec:
   clientAuth:
     secretNames:
       - trusted-certificates-traefik
-    clientAuthType: RequireAndVerifyClientCert
+    clientAuthType: VerifyClientCertIfGiven
 {{- end }}

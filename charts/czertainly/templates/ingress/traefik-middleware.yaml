@@ -50,4 +50,18 @@ metadata:
 spec:
   passTLSClientCert:
     pem: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ include "czertainly.fullname" . }}-fix-cert-header
+  labels:
+    {{- include "czertainly.labels" . | nindent 4 }}
+spec:
+  plugin:
+    rewrite-header:
+      rewrites:
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "^.*%2D%2D%2D%2D%2DBEGIN%20CERTIFICATE%2D%2D%2D%2D%2D%0A(.*)%0A%2D%2D%2D%2D%2DEND%20CERTIFICATE%2D%2D%2D%2D%2D.*$"
+          replacement: "$1"
 {{- end }}

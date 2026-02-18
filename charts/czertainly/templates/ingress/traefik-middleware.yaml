@@ -63,7 +63,7 @@ spec:
       rewrites:
         # strip PEM headers and footers
         - header: "X-Forwarded-Tls-Client-Cert"
-          regex: "^.*%2D%2D%2D%2D%2DBEGIN%20CERTIFICATE%2D%2D%2D%2D%2D%0A(.*)%0A%2D%2D%2D%2D%2DEND%20CERTIFICATE%2D%2D%2D%2D%2D.*$"
+          regex: "^.*-----BEGIN%20CERTIFICATE-----%0A(.*)%0A-----END%20CERTIFICATE-----.*$"
           replacement: "$1"
         # decode URL-encoded base64: + / =
         - header: "X-Forwarded-Tls-Client-Cert"

@@ -62,9 +62,13 @@ spec:
     rewriteHeaders:
       rewrites:
         request:
-          # extract first cert only (strip PEM headers, footers, and any chained CA certs)
+          # strip chained CA certs (everything after first comma)
           - header: "X-Forwarded-Tls-Client-Cert"
-            regex: "^-----BEGIN%20CERTIFICATE-----%0A(.*?)%0A-----END%20CERTIFICATE-----.*$"
+            regex: ",.*$"
+            replacement: ""
+          # strip PEM headers and footers
+          - header: "X-Forwarded-Tls-Client-Cert"
+            regex: "^-----BEGIN%20CERTIFICATE-----%0A(.*)%0A-----END%20CERTIFICATE-----$"
             replacement: "$1"
           # decode URL-encoded base64: + / =
           - header: "X-Forwarded-Tls-Client-Cert"

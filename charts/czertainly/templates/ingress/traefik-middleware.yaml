@@ -66,4 +66,8 @@ spec:
           - header: "X-Forwarded-Tls-Client-Cert"
             regex: ",.*$"
             replacement: ""
+          # encode + as %2B so core's URLDecoder.decode() produces + back
+          - header: "X-Forwarded-Tls-Client-Cert"
+            regex: "\\+"
+            replacement: "%2B"
 {{- end }}

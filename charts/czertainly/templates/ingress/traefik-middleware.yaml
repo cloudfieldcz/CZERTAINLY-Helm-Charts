@@ -61,7 +61,31 @@ spec:
   plugin:
     rewrite-header:
       rewrites:
+        # strip PEM headers and footers
         - header: "X-Forwarded-Tls-Client-Cert"
           regex: "^.*%2D%2D%2D%2D%2DBEGIN%20CERTIFICATE%2D%2D%2D%2D%2D%0A(.*)%0A%2D%2D%2D%2D%2DEND%20CERTIFICATE%2D%2D%2D%2D%2D.*$"
           replacement: "$1"
+        # decode URL-encoded base64: + / =
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%2B"
+          replacement: "+"
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%2F"
+          replacement: "/"
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%3D"
+          replacement: "="
+        # remove newlines and whitespace
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%0A"
+          replacement: ""
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%0D"
+          replacement: ""
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%20"
+          replacement: ""
+        - header: "X-Forwarded-Tls-Client-Cert"
+          regex: "%09"
+          replacement: ""
 {{- end }}

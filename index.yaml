@@ -5,7 +5,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 7.4.2
-    created: "2026-02-18T04:57:16.437973976Z"
+    created: "2026-02-18T05:41:45.099309027Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -37,7 +37,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-02-18T04:57:16.459419356Z"
+    created: "2026-02-18T05:41:45.120669761Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -198,7 +198,7 @@ entries:
       - pgbouncer
       version: 1.24.1-p1-1
     description: A Helm chart for CZERTAINLY platform.
-    digest: 7054921073942d50a329ffd64955825f8a99d4d6493e6eb9a28cfa46bb046b44
+    digest: 054dbec93cf4b9123440e51293c4d1486e1afe94a7abfb6e250c97c56aa77513
     home: https://github.com/3KeyCompany/CZERTAINLY
     icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
     keywords:
@@ -225,7 +225,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-02-18T04:57:16.614362139Z"
+    created: "2026-02-18T05:41:45.273234498Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -413,7 +413,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-02-18T04:57:16.594003851Z"
+    created: "2026-02-18T05:41:45.251215252Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -601,7 +601,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-02-18T04:57:16.570397635Z"
+    created: "2026-02-18T05:41:45.230159919Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -789,7 +789,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-02-18T04:57:16.548096204Z"
+    created: "2026-02-18T05:41:45.208823273Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -977,7 +977,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.4-SAAS
-    created: "2026-02-18T04:57:16.525737959Z"
+    created: "2026-02-18T05:41:45.185445531Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1165,7 +1165,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.4-SAAS
-    created: "2026-02-18T04:57:16.502547463Z"
+    created: "2026-02-18T05:41:45.16365588Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1353,7 +1353,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.3-SAAS
-    created: "2026-02-18T04:57:16.481427707Z"
+    created: "2026-02-18T05:41:45.141529938Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1535,7 +1535,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-02-18T04:57:16.615355559Z"
+    created: "2026-02-18T05:41:45.274239619Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1570,7 +1570,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 0.0.5
-    created: "2026-02-18T04:57:16.619546055Z"
+    created: "2026-02-18T05:41:45.277190483Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1603,7 +1603,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-02-18T04:57:16.617325386Z"
+    created: "2026-02-18T05:41:45.276138083Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1636,7 +1636,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-02-18T04:57:16.61636055Z"
+    created: "2026-02-18T05:41:45.27519057Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1670,7 +1670,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.9-SAAS
-    created: "2026-02-18T04:57:16.625522714Z"
+    created: "2026-02-18T05:41:45.282971205Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1710,7 +1710,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.8-SAAS
-    created: "2026-02-18T04:57:16.623568836Z"
+    created: "2026-02-18T05:41:45.281041583Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1750,7 +1750,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.7-SAAS
-    created: "2026-02-18T04:57:16.621613185Z"
+    created: "2026-02-18T05:41:45.279117701Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -1786,4 +1786,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/scheduler-service-1.0.5-1.tgz
     version: 1.0.5-1
-generated: "2026-02-18T04:57:16.436816229Z"
+generated: "2026-02-18T05:41:45.098185634Z"

@@ -41,7 +41,7 @@ image:
   registry: ilmtestswcacr.azurecr.io
   repository: ""
   name: czertainly-proxy
-  tag: "0.0.5"
+  tag: "0.0.6"
   digest: ""
   pullPolicy: IfNotPresent
   pullSecrets: []

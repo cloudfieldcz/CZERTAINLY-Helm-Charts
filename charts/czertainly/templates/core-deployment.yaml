@@ -227,18 +227,18 @@ spec:
                 configMapKeyRef:
                   name: messaging-configmap
                   key: messaging.amqp.port
-            # - name: BROKER_USERNAME
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: messaging-secret
-            #       key: messaging.username
-            # - name: BROKER_PASSWORD
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: messaging-secret
-            #       key: messaging.password
-            # - name: BROKER_VIRTUAL_HOST
-            #   value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
+            - name: BROKER_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: messaging-secret
+                  key: messaging.core.username
+            - name: BROKER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: messaging-secret
+                  key: messaging.core.password
+            - name: BROKER_VIRTUAL_HOST
+              value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
             - name: SCHEDULER_BASE_URL
               value: "http://scheduler-service-service:{{ .Values.schedulerService.service.port }}"
             {{- if $redisEnabled }}

@@ -58,6 +58,13 @@ global:
     remoteAccess: false
     username: ""
     password: ""
+    provisionerUsername: ""
+    provisionerPassword: ""
+    proxyUsername: ""
+    proxyPassword: ""
+    coreUsername: ""
+    corePassword: ""
+    virtualHost: ""
   redis:
     external:
       enabled: false
@@ -415,6 +422,7 @@ messaging:
   host: "messaging-service"
   amqp:
     port: 5672
+  virtualHost: "czertainly"
 serviceAccount:
   # Specifies whether a service account should be created
   create: true

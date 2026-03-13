@@ -1,15 +1,20 @@
+{{- $externalMessaging := pluck "enabled" .Values.global.messaging.external .Values.messaging.external | compact | first }}
+{{- $messagingUrl := pluck "url" .Values.global.messaging .Values.messaging | compact | first }}
+{{- if $externalMessaging }}
+{{- $messagingUrl = pluck "url" .Values.global.messaging.external .Values.messaging.external | compact | first | default $messagingUrl }}
+{{- end }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: messaging-configmap
 data:
-  {{- $externalMessaging := pluck "enabled" .Values.global.messaging.external .Values.messaging.external | compact | first }}
-  {{- if $externalMessaging }}
-  messaging.host: {{ pluck "host" .Values.global.messaging.external .Values.messaging.external | compact | first | quote }}
-  messaging.amqp.port: {{ pluck "port" .Values.global.messaging.external.amqp .Values.messaging.external.amqp | compact | first | quote}}
+  {{- if $messagingUrl }}
+  messaging.url: {{ $messagingUrl | quote }}
   {{- else }}
-  messaging.host: "messaging-service"
-  messaging.amqp.port: {{ .Values.messagingService.service.client.amqp.port | quote }}
+  messaging.host: {{ pluck "host" .Values.global.messaging.external .Values.messaging.external | compact | first | default .Values.messaging.host | quote }}
+  messaging.amqp.port: {{ pluck "port" .Values.global.messaging.external.amqp .Values.messaging.external.amqp | compact | first | default .Values.messaging.amqp.port | quote }}
+  {{- end }}
+  {{- if not $externalMessaging }}
   messaging.enabled_plugins: |-
     {{ .Values.messagingService.messaging.plugins.enabled }}
   messaging.rabbitmq.conf: |-

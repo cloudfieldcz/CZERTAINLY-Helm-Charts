@@ -43,19 +43,22 @@ global:
   messaging:
     external:
       enabled: false
-      host: ""
-      amqp:
-        port: ""
+      type: ""
     remoteAccess: false
-    username: ""
-    password: ""
-    provisionerUsername: ""
-    provisionerPassword: ""
-    proxyUsername: ""
-    proxyPassword: ""
-    coreUsername: ""
-    corePassword: ""
-    virtualHost: ""
+    username: "admin"
+    password: "admin"
+    coreUsername: "core"
+    corePassword: "core"
+    provisionerUsername: "provisioner"
+    provisionerPassword: "provisioner"
+    proxyUsername: "proxy"
+    proxyPassword: "proxy"
+    host: "messaging-service"
+    amqp:
+      port: 5672
+    virtualHost: "czertainly"
+    exchange: ""
+    proxyExchange: ""
   valkey:
     external:
       enabled: false
@@ -401,19 +404,6 @@ javaOpts: ""
 auth:
   header:
     certificate: "ssl-client-cert"
-messaging:
-  external:
-    enabled: false
-    host: ""
-    amqp:
-      port: ""
-  remoteAccess: false
-  username: "admin"
-  password: "admin"
-  host: "messaging-service"
-  amqp:
-    port: 5672
-  virtualHost: "czertainly"
 serviceAccount:
   # Specifies whether a service account should be created
   create: true

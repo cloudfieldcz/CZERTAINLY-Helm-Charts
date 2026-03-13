@@ -38,6 +38,11 @@ global:
       host: ""
       amqp:
         port: ""
+      url: ""
+      type: ""
+      exchange: ""
+      proxyExchange: ""
+    url: ""
     username: ""
     password: ""
   # additional init containers that will be added to each pod
@@ -241,6 +246,11 @@ messaging:
     host: ""
     amqp:
       port: ""
+    url: ""
+    type: ""
+    exchange: ""
+    proxyExchange: ""
+  url: ""
   username: "admin"
   password: "admin"
   host: "messaging-service"

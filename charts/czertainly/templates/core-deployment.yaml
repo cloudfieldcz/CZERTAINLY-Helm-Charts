@@ -16,10 +16,12 @@
 {{- $scripts := or .Values.global.keycloak.enabled .Values.registerAdmin.enabled }}
 {{- $messagingHost := .Values.messaging.host }}
 {{- $messagingAmqpPort := .Values.messaging.amqp.port }}
+{{- $messagingUrl := pluck "url" .Values.global.messaging .Values.messaging | compact | first }}
 {{- $externalMessaging := pluck "enabled" .Values.global.messaging.external .Values.messaging.external | compact | first }}
 {{- if $externalMessaging }}
 {{- $messagingHost = pluck "host" .Values.global.messaging.external .Values.messaging.external | compact | first }}
 {{- $messagingAmqpPort = pluck "port" .Values.global.messaging.external.amqp .Values.messaging.external.amqp | compact | first }}
+{{- $messagingUrl = pluck "url" .Values.global.messaging.external .Values.messaging.external | compact | first | default $messagingUrl }}
 {{- end }}
 apiVersion: apps/v1
 kind: Deployment
@@ -78,7 +80,11 @@ spec:
               while ! nc -z auth-service {{ .Values.authService.service.port }}; do sleep 1; done &&
               while ! nc -z auth-opa-policies-service {{ .Values.authOpaPolicies.service.port }}; do sleep 1; done &&
               echo "auth service seems to be started" &&
+              {{- if $messagingUrl }}
+              while ! curl -s -o /dev/null {{ $messagingUrl }}; do sleep 1; done &&
+              {{- else }}
               while ! nc -z {{ $messagingHost }} {{ $messagingAmqpPort }}; do sleep 1; done &&
+              {{- end }}
               while ! nc -z scheduler-service-service {{ .Values.schedulerService.service.port }}; do sleep 1; done &&
               {{- if .Values.rabbitmqBootstrap.enabled }}
               while ! nc -z rabbitmq-bootstrap-service {{ .Values.rabbitmqBootstrap.service.port }}; do sleep 1; done &&
@@ -220,6 +226,13 @@ spec:
             {{- end }}
             - name: JAVA_OPTS
               value: {{ .Values.javaOpts | quote }}
+            {{- if $messagingUrl }}
+            - name: BROKER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: messaging-configmap
+                  key: messaging.url
+            {{- else }}
             - name: BROKER_HOST
               valueFrom:
                 configMapKeyRef:
@@ -230,18 +243,37 @@ spec:
                 configMapKeyRef:
                   name: messaging-configmap
                   key: messaging.amqp.port
+            {{- end }}
+            {{- if (pluck "coreUsername" .Values.global.messaging .Values.messaging .Values.messagingService.messaging | compact | first) }}
             - name: BROKER_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: messaging-secret
                   key: messaging.core.username
+            {{- end }}
+            {{- if (pluck "corePassword" .Values.global.messaging .Values.messaging .Values.messagingService.messaging | compact | first) }}
             - name: BROKER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: messaging-secret
                   key: messaging.core.password
+            {{- end }}
             - name: BROKER_VIRTUAL_HOST
               value: {{ pluck "virtualHost" .Values.global.messaging .Values.messaging | compact | first | default "czertainly" | quote }}
+            {{- if $externalMessaging }}
+            {{- with (pluck "type" .Values.global.messaging.external .Values.messaging.external | compact | first) }}
+            - name: BROKER_TYPE
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with (pluck "exchange" .Values.global.messaging.external .Values.messaging.external | compact | first) }}
+            - name: BROKER_EXCHANGE
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with (pluck "proxyExchange" .Values.global.messaging.external .Values.messaging.external | compact | first) }}
+            - name: BROKER_PROXY_EXCHANGE
+              value: {{ . | quote }}
+            {{- end }}
+            {{- end }}
             - name: SCHEDULER_BASE_URL
               value: "http://scheduler-service-service:{{ .Values.schedulerService.service.port }}"
             {{- if $valkeyEnabled }}

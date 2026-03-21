@@ -5,7 +5,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 3.9.1
-    created: "2026-03-21T05:25:03.727758442Z"
+    created: "2026-03-21T05:26:08.828334584Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -42,7 +42,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 7.4.2
-    created: "2026-03-21T05:25:03.728683577Z"
+    created: "2026-03-21T05:26:08.829251746Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -74,7 +74,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 8.1.1
-    created: "2026-03-21T05:25:03.729613771Z"
+    created: "2026-03-21T05:26:08.830162427Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -106,7 +106,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.3.5
-    created: "2026-03-21T05:25:03.730688625Z"
+    created: "2026-03-21T05:26:08.831173105Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -141,7 +141,201 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.28-SAAS
-    created: "2026-03-21T05:25:04.683863526Z"
+    created: "2026-03-21T05:26:09.794353438Z"
+    dependencies:
+    - alias: keycloakInternal
+      condition: global.keycloak.enabled
+      name: keycloak-internal
+      repository: file://../keycloak-internal
+      tags:
+      - keycloak-internal
+      version: 26.4.2-0-1
+    - alias: commonCredentialProvider
+      condition: commonCredentialProvider.enabled
+      name: common-credential-provider
+      repository: file://../common-credential-provider
+      tags:
+      - credential-provider
+      version: 1.3.5-3-develop
+    - alias: ejbcaNgConnector
+      condition: ejbcaNgConnector.enabled
+      name: ejbca-ng-connector
+      repository: file://../ejbca-ng-connector
+      tags:
+      - authority-provider
+      - discovery-provider
+      version: 1.11.1-2
+    - alias: pyAdcsConnector
+      condition: pyAdcsConnector.enabled
+      name: pyadcs-connector
+      repository: file://../pyadcs-connector
+      tags:
+      - authority-provider
+      - discovery-provider
+      version: 1.1.6
+    - alias: x509ComplianceProvider
+      condition: x509ComplianceProvider.enabled
+      name: x509-compliance-provider
+      repository: file://../x509-compliance-provider
+      tags:
+      - compliance-provider
+      version: 1.3.1-2
+    - alias: cryptosenseDiscoveryProvider
+      condition: cryptosenseDiscoveryProvider.enabled
+      name: cryptosense-discovery-provider
+      repository: file://../cryptosense-discovery-provider
+      tags:
+      - cryptosense-discovery-provider
+      version: 1.4.1-2
+    - alias: ctLogsDiscoveryProvider
+      condition: ctLogsDiscoveryProvider.enabled
+      name: ct-logs-discovery-provider
+      repository: file://../ct-logs-discovery-provider
+      tags:
+      - ct-logs-discovery-provider
+      version: 1.0.2-2
+    - alias: networkDiscoveryProvider
+      condition: networkDiscoveryProvider.enabled
+      name: network-discovery-provider
+      repository: file://../network-discovery-provider
+      tags:
+      - discovery-provider
+      version: 1.6.1-2
+    - alias: keystoreEntityProvider
+      condition: keystoreEntityProvider.enabled
+      name: keystore-entity-provider
+      repository: file://../keystore-entity-provider
+      tags:
+      - entity-provider
+      version: 1.4.2-2
+    - alias: softwareCryptographyProvider
+      condition: softwareCryptographyProvider.enabled
+      name: software-cryptography-provider
+      repository: file://../software-cryptography-provider
+      tags:
+      - cryptography-provider
+      version: 1.3.0-2
+    - alias: emailNotificationProvider
+      condition: emailNotificationProvider.enabled
+      name: email-notification-provider
+      repository: file://../email-notification-provider
+      tags:
+      - notification-provider
+      version: 1.1.1-2
+    - alias: webhookNotificationProvider
+      condition: webhookNotificationProvider.enabled
+      name: webhook-notification-provider
+      repository: file://../webhook-notification-provider
+      tags:
+      - notification-provider
+      version: 1.0.0-2
+    - alias: hashicorpVaultConnector
+      condition: hashicorpVaultConnector.enabled
+      name: hashicorp-vault-connector
+      repository: file://../hashicorp-vault-connector
+      tags:
+      - authority-provider
+      - discovery-provider
+      version: 1.1.3-2
+    - alias: utilsService
+      condition: global.utils.enabled
+      name: utils-service
+      repository: file://../utils-service
+      tags:
+      - utils-service
+      version: 1.0.2-1
+    - name: czertainly-lib
+      repository: file://../czertainly-lib
+      version: 1.4.2
+    - alias: apiGateway
+      name: api-gateway-kong
+      repository: file://../api-gateway-kong
+      tags:
+      - api-gateway
+      version: 3.9.1-1
+    - alias: feAdministrator
+      name: fe-administrator
+      repository: file://../fe-administrator
+      tags:
+      - fe
+      version: 2.16.2
+    - alias: authService
+      name: auth-service
+      repository: file://../auth-service
+      tags:
+      - auth
+      version: 1.6.3-1
+    - alias: authOpaPolicies
+      name: auth-opa-policies
+      repository: file://../auth-opa-policies
+      tags:
+      - auth
+      - opa
+      version: 1.4.1-1
+    - alias: messagingService
+      condition: messagingService.enabled
+      name: messaging-rabbitmq
+      repository: file://../messaging-rabbitmq
+      tags:
+      - messaging
+      version: 4.2.0-1
+    - alias: cachingService
+      condition: cachingService.enabled
+      name: caching-valkey
+      repository: file://../caching-valkey
+      tags:
+      - caching
+      version: 8.1.1-1-develop
+    - alias: schedulerService
+      name: scheduler-service
+      repository: file://../scheduler-service
+      tags:
+      - scheduler
+      version: 1.0.8-1
+    - alias: rabbitmqBootstrap
+      condition: rabbitmqBootstrap.enabled
+      name: rabbitmq-bootstrap
+      repository: file://../rabbitmq-bootstrap
+      tags:
+      - rabbitmq-bootstrap
+      version: 1.0.0-1
+    - alias: pgBouncer
+      condition: global.database.pgBouncer.enabled
+      name: pg-bouncer
+      repository: file://../pg-bouncer
+      tags:
+      - database
+      - pgbouncer
+      version: 1.24.1-p1-1
+    description: A Helm chart for CZERTAINLY platform.
+    digest: 1b2533645ae3005996e82db99366b29d2051cf6f97d51ae26c6fdcae70c2e45b
+    home: https://github.com/3KeyCompany/CZERTAINLY
+    icon: https://github.com/3KeyCompany/CZERTAINLY/blob/master/czertainly-logo/czertainly_sign_color.svg
+    keywords:
+    - czertainly
+    - certificate
+    - cryptography
+    - management
+    - lifecycle
+    - platform
+    maintainers:
+    - email: info@czertainly.com
+      name: CZERTAINLY
+      url: https://github.com/3KeyCompany/CZERTAINLY-Helm-Charts
+    name: czertainly
+    sources:
+    - https://github.com/3KeyCompany/CZERTAINLY
+    - https://www.czertainly.com
+    - https://docs.czertainly.com
+    type: application
+    urls:
+    - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/czertainly-2.17.51-SAAS.tgz
+    version: 2.17.51-SAAS
+  - annotations:
+      category: trustLifecycleManagement
+    apiVersion: v2
+    appVersion: 2.17.28-SAAS
+    created: "2026-03-21T05:26:09.771251499Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -335,7 +529,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.28-SAAS
-    created: "2026-03-21T05:25:04.63927991Z"
+    created: "2026-03-21T05:26:09.725289756Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -529,7 +723,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.28-SAAS
-    created: "2026-03-21T05:25:04.616598703Z"
+    created: "2026-03-21T05:26:09.703085651Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -723,7 +917,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.28-SAAS
-    created: "2026-03-21T05:25:04.594854365Z"
+    created: "2026-03-21T05:26:09.680873719Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -917,7 +1111,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.28-SAAS
-    created: "2026-03-21T05:25:04.571637032Z"
+    created: "2026-03-21T05:26:09.657153184Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1111,7 +1305,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.28-SAAS
-    created: "2026-03-21T05:25:04.54810025Z"
+    created: "2026-03-21T05:26:09.631270501Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1305,7 +1499,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.27-SAAS
-    created: "2026-03-21T05:25:04.524907459Z"
+    created: "2026-03-21T05:26:09.605518913Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1499,7 +1693,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.26-SAAS
-    created: "2026-03-21T05:25:04.503194734Z"
+    created: "2026-03-21T05:26:09.583937779Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1693,7 +1887,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.25-SAAS
-    created: "2026-03-21T05:25:04.480971844Z"
+    created: "2026-03-21T05:26:09.561775634Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -1887,7 +2081,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.24-SAAS
-    created: "2026-03-21T05:25:04.459343662Z"
+    created: "2026-03-21T05:26:09.540269521Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -2081,7 +2275,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.23-SAAS
-    created: "2026-03-21T05:25:04.413671122Z"
+    created: "2026-03-21T05:26:09.495822454Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -2275,7 +2469,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.22-SAAS
-    created: "2026-03-21T05:25:04.391302377Z"
+    created: "2026-03-21T05:26:09.473725241Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -2469,7 +2663,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.21-SAAS
-    created: "2026-03-21T05:25:04.369387741Z"
+    created: "2026-03-21T05:26:09.451760257Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -2663,7 +2857,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.20-SAAS
-    created: "2026-03-21T05:25:04.346777491Z"
+    created: "2026-03-21T05:26:09.430016489Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -2857,7 +3051,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.19-SAAS
-    created: "2026-03-21T05:25:04.323976771Z"
+    created: "2026-03-21T05:26:09.406834107Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -3051,7 +3245,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.18-SAAS
-    created: "2026-03-21T05:25:04.295896065Z"
+    created: "2026-03-21T05:26:09.383753247Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -3245,7 +3439,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.17-SAAS
-    created: "2026-03-21T05:25:04.27203637Z"
+    created: "2026-03-21T05:26:09.36163671Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -3439,7 +3633,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.17-SAAS
-    created: "2026-03-21T05:25:04.247750606Z"
+    created: "2026-03-21T05:26:09.339520299Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -3633,7 +3827,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.17-SAAS
-    created: "2026-03-21T05:25:04.224949025Z"
+    created: "2026-03-21T05:26:09.317187751Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -3827,7 +4021,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.6-SAAS
-    created: "2026-03-21T05:25:04.181096252Z"
+    created: "2026-03-21T05:26:09.270193111Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -4021,7 +4215,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.16-SAAS
-    created: "2026-03-21T05:25:04.157479813Z"
+    created: "2026-03-21T05:26:09.248593234Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -4215,7 +4409,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.13-SAAS
-    created: "2026-03-21T05:25:04.132746032Z"
+    created: "2026-03-21T05:26:09.223856199Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -4409,7 +4603,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.13-SAAS
-    created: "2026-03-21T05:25:04.108639848Z"
+    created: "2026-03-21T05:26:09.200946714Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -4603,7 +4797,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.12-SAAS
-    created: "2026-03-21T05:25:04.085837424Z"
+    created: "2026-03-21T05:26:09.179027176Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -4798,7 +4992,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.11-SAAS
-    created: "2026-03-21T05:25:04.063089568Z"
+    created: "2026-03-21T05:26:09.155651341Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -4986,7 +5180,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.10-SAAS
-    created: "2026-03-21T05:25:04.040608959Z"
+    created: "2026-03-21T05:26:09.133667521Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -5174,7 +5368,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.9-SAAS
-    created: "2026-03-21T05:25:04.016272847Z"
+    created: "2026-03-21T05:26:09.111898306Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -5362,7 +5556,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.8-SAAS
-    created: "2026-03-21T05:25:03.993104977Z"
+    created: "2026-03-21T05:26:09.091164433Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -5550,7 +5744,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.971060709Z"
+    created: "2026-03-21T05:26:09.068883844Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -5738,7 +5932,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.950472216Z"
+    created: "2026-03-21T05:26:09.046931142Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -5926,7 +6120,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.928076932Z"
+    created: "2026-03-21T05:26:09.025639402Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -6114,7 +6308,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.90613359Z"
+    created: "2026-03-21T05:26:09.004579804Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -6302,7 +6496,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.885125519Z"
+    created: "2026-03-21T05:26:08.981956667Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -6490,7 +6684,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.86297946Z"
+    created: "2026-03-21T05:26:08.960802275Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -6678,7 +6872,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.841824197Z"
+    created: "2026-03-21T05:26:08.939757127Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -6866,7 +7060,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.820522216Z"
+    created: "2026-03-21T05:26:08.918680571Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -7054,7 +7248,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.797968185Z"
+    created: "2026-03-21T05:26:08.897898429Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -7242,7 +7436,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.7-SAAS
-    created: "2026-03-21T05:25:03.775946764Z"
+    created: "2026-03-21T05:26:08.875869743Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -7430,7 +7624,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-03-21T05:25:04.770769135Z"
+    created: "2026-03-21T05:26:09.880384682Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -7618,7 +7812,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-03-21T05:25:04.749789963Z"
+    created: "2026-03-21T05:26:09.859601755Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -7806,7 +8000,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-03-21T05:25:04.727164343Z"
+    created: "2026-03-21T05:26:09.837263985Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -7994,7 +8188,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.6-SAAS
-    created: "2026-03-21T05:25:04.70503683Z"
+    created: "2026-03-21T05:26:09.815698626Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -8182,7 +8376,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.4-SAAS
-    created: "2026-03-21T05:25:04.661510084Z"
+    created: "2026-03-21T05:26:09.749000988Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -8370,7 +8564,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.4-SAAS
-    created: "2026-03-21T05:25:04.437402237Z"
+    created: "2026-03-21T05:26:09.518173384Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -8558,7 +8752,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.17.3-SAAS
-    created: "2026-03-21T05:25:04.202629485Z"
+    created: "2026-03-21T05:26:09.29397116Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -8739,7 +8933,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-03-21T05:25:03.754419911Z"
+    created: "2026-03-21T05:26:08.854379031Z"
     dependencies:
     - alias: keycloakInternal
       condition: global.keycloak.enabled
@@ -8934,7 +9128,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 2.16.10-SAAS
-    created: "2026-03-21T05:25:04.771751777Z"
+    created: "2026-03-21T05:26:09.881359263Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -8969,7 +9163,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 4.2.0
-    created: "2026-03-21T05:25:04.772950933Z"
+    created: "2026-03-21T05:26:09.882557963Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9004,7 +9198,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 0.0.6
-    created: "2026-03-21T05:25:04.775992523Z"
+    created: "2026-03-21T05:26:09.885526468Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9037,7 +9231,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-03-21T05:25:04.774914664Z"
+    created: "2026-03-21T05:26:09.884471256Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9070,7 +9264,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-03-21T05:25:04.773907977Z"
+    created: "2026-03-21T05:26:09.883520321Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9104,7 +9298,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.0-SNAPSHOT
-    created: "2026-03-21T05:25:04.778407949Z"
+    created: "2026-03-21T05:26:09.886548176Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9141,7 +9335,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.10-SAAS
-    created: "2026-03-21T05:25:04.790176178Z"
+    created: "2026-03-21T05:26:09.89745067Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9181,7 +9375,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.9-SAAS
-    created: "2026-03-21T05:25:04.787140008Z"
+    created: "2026-03-21T05:26:09.895478707Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9221,7 +9415,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.8-SAAS
-    created: "2026-03-21T05:25:04.784706982Z"
+    created: "2026-03-21T05:26:09.893538955Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9261,7 +9455,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.1.7-SAAS
-    created: "2026-03-21T05:25:04.782544089Z"
+    created: "2026-03-21T05:26:09.891595065Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9301,7 +9495,7 @@ entries:
       category: trustLifecycleManagement
     apiVersion: v2
     appVersion: 1.0.4
-    created: "2026-03-21T05:25:04.780510198Z"
+    created: "2026-03-21T05:26:09.8896327Z"
     dependencies:
     - name: czertainly-lib
       repository: file://../czertainly-lib
@@ -9337,4 +9531,4 @@ entries:
     urls:
     - https://cloudfieldcz.github.io/CZERTAINLY-Helm-Charts/scheduler-service-1.0.4-1.tgz
     version: 1.0.4-1
-generated: "2026-03-21T05:25:03.726248738Z"
+generated: "2026-03-21T05:26:08.826836591Z"

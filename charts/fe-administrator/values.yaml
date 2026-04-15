@@ -54,6 +54,8 @@ global:
     configMaps: []
     # list of secrets to be added as environment variables
     secrets: []
+  proxy:
+    enabled: false
 autoscaling:
   enabled: false
   minReplicas: 1
